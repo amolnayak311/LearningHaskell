@@ -22,5 +22,12 @@ mini x y = min x y
 --Finds maximum of two given values
 maxi x y = max x y
 
+--Double the number provided
+doubleMe x = x + x
 
+-- Double both params and add
+doubleUs x y = doubleMe x + doubleMe y
+
+--Doubles a number <= 100 else return as is
+doubleSmallNumber x = if x <= 100 then doubleMe x else x
 

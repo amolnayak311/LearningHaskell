@@ -53,7 +53,19 @@ kToZ = ['K'..'Z']
 --Haskell will find the difference between the first two numbers and give the range, for e.g
 allOdd = [1, 3..20] -- This will give all off numbers with max number being 19
 --By default the step is 1. Thus [20..1] won't work, instead we need to give first two numbers in the sequence
---To get this step size
+--To get this step size we need to specify the first two numbers in the range as follows
+decreasingSeq = [20, 19 .. 1]
+
+--Lets take first 20 numbers from this infinite list
+infiniteList = [1..]
+--Note that since this is a lazy evaluation, it will not execiute immediately
+--We will execute the following and get first 20 numbers
+twentyFromInfinite = take 20 infiniteList
+--Cycle and Repeat are used to take a list or a singular value and repeat it indefinitely
+--These are to be used with take to restrict the number of elements we take from this infinite stream
+oneToFourFiveTimes = take 20 (cycle [1, 2, 3, 4])
+three10Times = take 10 (repeat 3)
+
 
 
 

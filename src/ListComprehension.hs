@@ -24,3 +24,15 @@ filterUpperCase xs = [x | x <- xs, x `elem` ['A'..'Z']]
 
 --Later when we learn Anonymous functions in Haskell, we will implement our own 
 --filter and map functions
+
+--lets look at iterating through nested lists
+--Note how we have nested [], this will yield a list of lists
+xxs = [[1,3,5,2,3,1,2,4,5],[1,2,3,4,5,6,7,8,9],[1,2,4,2,1,6,3,1,3,2,3,6]] 
+nxs = [[x | x <- xs, even x ] | xs <- xxs]
+--Now, if we see the above result, we get [[2,2,4],[2,4,6,8],[2,4,2,6,2,6]]
+-- Lets see how can we get a flattened version of the above list
+nxsFlat = [x | xs <- xxs, x <- xs, even x]
+-- The value used in the generator(Right Term??) in the list comprehension is evaluated from left to right
+--to have the value xs, we need to have it resolve to a variable on the left side whereever its is used
+-- That is, having x <- xs, xs <- xxs, will give an error as xs is not yet defined, we need to have it 
+-- as  xs <- xxs, x <- xs

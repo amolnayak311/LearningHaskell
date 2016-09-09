@@ -37,5 +37,7 @@ rightTriangles = [(a, b, c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 
 --e.g. ('John', 20, 'Developer'), this is a tuple of three elements we can potentially have a lot more
 --values in a tuple, having methods like fst and snd is not practical and there needs to be a generic way
 
-
+--One detail for fst and snd
+--This function can be invoked only on a pair
+--thus fst (1, 2, 3) will not give the value 1 however, fst (1, 2) would work
 

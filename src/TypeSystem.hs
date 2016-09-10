@@ -53,7 +53,7 @@ factorial' n = product [1 .. n]
 -- Prefer using the type Int over Integer when are absolutely sure that the value will not overflow from
 -- 32 bit number as it is much efficient than using Integer
 
---Lets look at Float and Double data types
+-- Lets look at Float and Double data types
 -- pi is defined
 circumferencef :: Float -> Float
 circumferencef r = 2 * pi * r
@@ -61,4 +61,14 @@ circumferencef r = 2 * pi * r
 circumferenced :: Double -> Double
 circumferenced r = 2 * pi * r
 
+-- Type of fst, snd, head and tail of the list are as follows
+-- ghci> :t fst
+-- fst :: (a, b) -> a
+-- ghci> :t snd
+-- snd :: (a, b) -> b
+-- ghci> :t head
+-- head :: [a] -> a
+-- ghci> :t tail
+-- tail :: [a] -> [a]
 
+-- Lets look at the following

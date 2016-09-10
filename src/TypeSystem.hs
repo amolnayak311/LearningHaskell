@@ -72,3 +72,46 @@ circumferenced r = 2 * pi * r
 -- tail :: [a] -> [a]
 
 -- Lets look at the following
+-- ghci> :t (==)
+-- (==) :: Eq a => a -> a -> Bool
+-- ghci> :t (/=)
+-- (/=) :: Eq a => a -> a -> Bool
+-- ghci> :t (*)
+-- (*) :: Num a => a -> a -> a
+
+-- The type of == states that this function accepts two parameters of type a and returns a boolean value
+-- The portion before => is the constraint, in case of == and /= the constraint is that the 
+-- values on which we invoke == should be a member of Eq, its an interface for testing the Equality in haskell
+-- Some Type clases in Haskell
+--
+-- Ord: members that can be ordered, compared
+-- Eq: Members that can be equated using ==
+-- Show: Members that can be converted to a String
+-- Read: Members that can be parsed from a String back to a type
+--
+-- E.g Read "True" gives a boolean variable True
+-- Try the following 
+-- ghci> read "True" || False
+-- True
+-- ghci> read "True"
+-- *** Exception: Prelude.read: no parse
+-- As we can see, the First case worked as the language knows || Expects a boolean
+-- thus read tries to convert the String passed to read to a boolean which works
+-- Where as the second fails as we cont possibly know the type to convert the String into
+-- Similarly 
+-- ghci> read "qwery" || False
+-- Doesnt work too
+-- 
+-- Enum: Sequential ordered types, e.g [1..5], ['A' .. 'Z']
+-- Note that [1, 2, 3, 4, 5] is not an Enum even though it seems same as [1..5]
+-- Try calling :t on both [1..5] and [1, 2, 3, 4, 5]
+--
+-- Bounded: These types have Bounded values, e.g
+-- ghci> minBound :: Int
+-- 9223372036854775808
+-- ghci> maxBound :: Int
+-- 9223372036854775807
+--
+-- Num: Numeric Typeclass which can act as numbers
+-- Integral: All numeric sub types, Int and Integer type classes fall in this type
+-- Floating: All floating types like Float and Double

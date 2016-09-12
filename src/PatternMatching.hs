@@ -106,3 +106,5 @@ firstLetter allStr@(f:xs) = "First Character of input string " ++ allStr ++ " is
 -- "Given String is empty"
 -- ghci> firstLetter "Hello"
 -- "First Character of input string Hello is H"
+
+

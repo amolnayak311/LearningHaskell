@@ -48,8 +48,33 @@ initials firstname lastname = [f] ++ ". " ++ [l] ++ "."
     where   (f:_) = firstname
             (l:_) = lastname
             
+-- Lets look at using let .. in, in haskell
 
-                                
+xPlus2 = let x = 5 in x + 2
+--Should be 7
+
+--Similarly lets define a square function
+
+threeSquares = [let square x = x * x in (square 2, square 3, square 4)]
+
+-- Finally lets look at case statement for pattern matching
+-- case takes the following format
+-- case expression of   pattern -> result
+--                      pattern -> result
+--                      pattern -> result
+
+descList xs = case xs of    [] -> "Empty List"
+                            [_] -> "Singleton List"
+                            [_, _] -> "List of size two"
+                            _ -> "Longer List"
+                            
+-- Similarly, pattern match can be done in where conditions as follows
+
+descList' xs =  "List is " ++ what xs
+                where   what [] = "Empty List"
+                        what [_] = "Singleton List"
+                        what [_, _] = "List of size two"
+                        what _ = "Longer List"
 
 
 

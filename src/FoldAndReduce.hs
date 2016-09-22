@@ -60,6 +60,18 @@ filterf :: (a -> Bool) -> [a] -> [a]
 filterf f = foldr (\x acc -> if f x then x : acc else acc) []
 -- Note that we used foldr instead of  foldl as we want the elements in filtered list in same order as the input list
 
+-- Lets look at scanl and scanr now. They are sumilar to foldl and foldr, except that they 
+-- also report intermediate state, similarly there is scaln1 and scanr1
+
+-- lets implement the cumulative sum using scanl1
+
+cumulativeSum :: Num a => [a] -> [a]
+cumulativeSum [] = []
+cumulativeSum xs = scanl1 (+) xs
+
+
+
+
 
 
 

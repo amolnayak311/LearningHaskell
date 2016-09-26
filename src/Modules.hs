@@ -94,4 +94,51 @@ splitAtNegative = splitAt (-1) [1, 2, 3, 4, 5]
 splitAtAboveRange = splitAt 100 [1, 2, 3, 4, 5]
 
 
+-- Drop while is opposite of TakeWhile, we drop all the elements till it encounters a first false.
+-- Everything after the first false is encountered will be returned
+dropWhileString = dropWhile (/= ' ') "Hello World"
+
+-- Span is something similar
+(pre, post) = span (/= ' ') "Hello World"
+-- pre will contain all the chars when the given condition was true, post will contain everything else
+
+groupUnsorted = group [1, 2, 3, 4, 5, 1, 3, 4]
+
+groupSorted = group $ sort [1, 2, 3, 4, 5, 1, 3, 4]
+
+-- ghci>groupUnsorted 
+-- [[1],[2],[3],[4],[5],[1],[3],[4]]
+-- ghci>groupSorted 
+-- [[1,1],[2],[3,3],[4,4],[5]]
+
+-- As we see above, group works on sorted data only, it produces 
+-- unexpected output for unsorted data
+
+-- inits and tails gives the possible inits and tails of a list recursively
+zipInitsAndTails = zip (inits w) (tails w) where w = "Hello"
+
+
+-- isPrefixOf and isSuffix of as expected will check for prefix and suffix of a list
+
+isHelloPrefix = "Hello" `isPrefixOf` "Hello World"      --True
+isHelloPrefix1 = "Hello" `isPrefixOf` "Hey! Hello"      --False
+isThereSuffix = "There" `isSuffixOf` "Hello There"      --True
+isThereSuffix1 = "There" `isSuffixOf` "Hello There!"    --False
+
+
+-- Partition splits the list in those that match and those that dont match a condition
+
+partitionOddsAndEven = partition (\x -> (mod x 2) == 0) [1 .. 10]
+-- ghci>partitionOddsAndEven 
+-- ([2,4,6,8,10],[1,3,5,7,9])
+
+
+
+
+
+
+
+
+
+
  

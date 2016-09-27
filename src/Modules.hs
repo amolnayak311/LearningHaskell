@@ -133,6 +133,57 @@ partitionOddsAndEven = partition (\x -> (mod x 2) == 0) [1 .. 10]
 -- ([2,4,6,8,10],[1,3,5,7,9])
 
 
+intList = [1 .. 10]
+
+
+-- Finds the first matching element in the List. Returns a Maybe, which is Just something or Nothing
+gt5 = find (>5) intList     -- Should  be Just 6, the first matching element
+gt10 = find (>10) intList   -- Should be Nothing, as nothing matches
+
+-- elemIndex is like elem but it returns the index of the elem matched, its typs is again a Maybe
+
+oneElemIndex = 1 `elemIndex` [1 .. 10]
+elevenElemIndex = 11 `elemIndex` [1..10]
+
+-- Similarly multiple matches will return a List of indices
+
+oneIndices = 1 `elemIndices` [1, 1, 2, 3, 1, 4, 5]
+elevenIndices = 11 `elemIndices` [1, 1, 2, 3, 1, 4, 5]
+
+-- findIndex and findIndices is similar to find except that it finds the index/returns array of index
+
+indexOfO = findIndex ( == 'o') "Hello World"
+indexOfA = findIndex ( == 'A') "Hello World"
+indicesOfO = findIndices ( == 'o') "Hello World"
+
+-- lines and unlines take lines read from a source and splits the contents in lines or array into a string with \n
+linesSplit = lines "Hello\nWorld"
+unLines = unlines linesSplit
+
+--Similarly, words and unwords split the sentence into words
+wordsInSentence = words "These   are    words in the sentence."
+unwordsInSentence  = unwords wordsInSentence
+
+-- delete deletes the given element from the list
+
+fourDeletedList = delete 4  [1..10]
+
+-- Similarly \\ removes the elements on the right from the list on the left
+
+twoToFiveDeleted = [1..10] \\ [2..5]
+
+
+-- union of a list acts as finding the union of two given lists
+aUnionB = "Hey Man" `union` "Man what's up?" 
+
+-- intersect finds the common elements between the two lists
+aIntB = [1..5] `intersect` [3..7]
+
+-- insert inserts the element at a position where its value is greater then the element on its left
+-- and less than or equal to the element on its right
+fourInserted = insert 4 [1, 2, 3, 4, 5]
+
+
 
 
 

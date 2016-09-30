@@ -1,8 +1,9 @@
 -- In this Section we will look at the concept called modules
 -- Import a module as follows
 
-import Data.List
+import Data.List as L
 import Data.Char as C
+--import Data.Map as M
 
 -- Similarly some limited functions can be imported as
 -- import Data.List (nub, sort)
@@ -207,7 +208,17 @@ toLower' word = map toLower word
 wordCount :: [Char] -> [([Char], Int)]
 wordCount sentence = map (\x -> (head x, length x))$ group $ sort $ map toLower' $ words sentence
 
+-- Lets look at the Data.Map package
 
+-- Lets first implement represent a Map as a List of tuples
+
+mapList = [("One", 1), ("Two", 2), ("Three", 3)]
+
+-- Naive findKey
+
+findKey' :: Eq a => a -> [(a, b)] -> Maybe b
+findKey' _ [] = Nothing
+findKey' key ((k, v) : t) = if k == key then Just v else findKey' key t
 
 
 

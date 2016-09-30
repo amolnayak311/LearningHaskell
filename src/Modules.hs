@@ -2,6 +2,8 @@
 -- Import a module as follows
 
 import Data.List
+import Data.Char as C
+
 -- Similarly some limited functions can be imported as
 -- import Data.List (nub, sort)
 -- import multiple packages as follwos
@@ -182,6 +184,29 @@ aIntB = [1..5] `intersect` [3..7]
 -- insert inserts the element at a position where its value is greater then the element on its left
 -- and less than or equal to the element on its right
 fourInserted = insert 4 [1, 2, 3, 4, 5]
+
+
+-- Lets look at some examples of Data.Char package
+-- Note that all imports have to done in the beginning and anywhere in the file
+-- Note how we can have alias for an import to avoid name conflicts
+
+-- Lets check for space, digit and Alphabet
+
+areSpaceChars = map (\x -> (x, C.isSpace x))  [' ', '\n', '\t', '1']
+areNumbericChars = map (\x -> (x, C.isDigit x)) ['1', '2', 'a']
+areAlphabeticChars = map (\x -> (x, C.isAlpha x)) ['1', '2', 'a', 'A']
+
+-- Similar to above there are methods for isUpper, isLower, isHexDigit, isOctDigit
+-- isAlphaNum, isPunctuation, isSymbol and many more
+
+-- Lets implement a small function giving word count in the given text
+
+toLower' :: [Char] -> [Char]
+toLower' word = map toLower word
+
+wordCount :: [Char] -> [([Char], Int)]
+wordCount sentence = map (\x -> (head x, length x))$ group $ sort $ map toLower' $ words sentence
+
 
 
 

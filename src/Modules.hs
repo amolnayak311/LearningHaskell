@@ -4,6 +4,7 @@
 import Data.List as L
 import Data.Char as C
 import Data.Map as M
+import Data.Set as S
 
 -- Similarly some limited functions can be imported as
 -- import Data.List (nub, sort)
@@ -254,6 +255,20 @@ existsNotExists = (M.member "One" numberMap, M.member "Four" numberMap)
 newNumberMap = M.insert "Four" 4 numberMap
 
 
+-- Finally some operations on Set
+-- Similar to Map.fromList we have Set.fromList
+
+setFromList = S.fromList "HelloWorld"
+
+set2 = S.fromList "Wldf"
+
+setIntersection = S.intersection setFromList set2
+
+emptySet = S.empty  --empty Set
+isSetEmpty = S.null emptySet
+singletonSet = S.singleton 4
+fourInEmpty = S.insert 4 emptySet
+areSetsEqual =  fourInEmpty == singletonSet -- Something new that can be done with maps too
 
 
 
